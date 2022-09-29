@@ -1,0 +1,11 @@
+.NavBarGeneral {
+    font-size: 20px;
+    color: var(--mBlue);
+    z-index: 1;
+}
+
+.logoW {
+    width: 170px;
+}
+
+

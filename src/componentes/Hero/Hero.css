@@ -1,0 +1,54 @@
+.heroImg {
+    height: 85vh;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.heroTitle {
+    width: 75%;
+    margin-left: 4%;
+    color: var(--mBlue);
+    font-size: calc(1.4em + 1vw);
+    font-weight: 800;
+}
+
+.heroSubTitle {
+    width: 55%;
+    color: var(--mBlue);
+    font-size: calc(.3em + 1vw);
+    font-weight: 400;
+    margin-top: 25px;
+    margin-left: 4%;
+}
+
+.heroBtn {
+    margin-left: 5%;
+}
+
+.hBtn {
+    border-radius: 50px;
+    color: var(--mBlue);
+    border-width: 3px;
+    height: 6.5vh;
+    width: calc(7em + 1vw);
+    font-weight: 800;
+    color: var(--mBlue);
+    margin-top: 4%;
+}
+
+.abtn {
+    text-decoration: none;
+}
+
+.divColor {
+    background-color: rgb(218, 239, 255);
+    height: 8.4vh;
+}
+
+.brandImg {
+    width: calc(3.5em + 1vw);
+}

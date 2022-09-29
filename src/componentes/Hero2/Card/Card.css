@@ -1,0 +1,27 @@
+.backgroundCard {
+    background: linear-gradient(#fff,#e7f1ff);
+}
+
+.cardDesing {
+    background-color: transparent;
+}
+
+.cardTitle {
+    color: var(--mBlue);
+}
+
+.cardText {
+    color: rgb(124, 125, 126);
+    font-size: 14px;
+}
+
+.cardBtn {
+    background-color: #e7f1ff;
+    border-color: var(--mBlue);
+    color: var(--mBlue);
+}
+
+.cardBtn :hover {
+    background-color: var(--mBlue);
+    color: #e7f1ff;
+}

@@ -1,0 +1,28 @@
+.aboutColor {
+    font-size: 20px;
+    color: var(--mBlue);
+}
+
+.offcanvas-backdrop.show {
+    background: linear-gradient(180deg,#c8f4ff 1%,rgba(190,231,255,.7411764706) 10%,rgba(190,231,255,.7411764706) 50%,#ffcfe9);
+}
+
+.arrowIcon {
+    height: 10px;
+}
+
+.aDecoration {
+    text-decoration: none;
+    color: var(--mBlue);
+}
+
+h3 {
+    font-size: 30px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--mBlue);
+}
+
+
