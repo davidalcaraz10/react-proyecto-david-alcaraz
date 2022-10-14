@@ -14,7 +14,7 @@ import img10 from '../../assets/images/img10.png';
 import './Hero.css';
 
 
-export function Hero() {
+export const Hero = () => {
 
     return (
         <>
