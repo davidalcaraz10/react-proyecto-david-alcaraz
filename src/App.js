@@ -17,7 +17,6 @@ function App() {
           <Hero/>
           <Routes>
             <Route path="/" element={<ItemListContainer/>}/>
-            <Route path="/category/:catId" element={<ItemListContainer/>}></Route>
             <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
             <Route path="/sustaintability" element={<Sustaintability/>}/>
           </Routes>
