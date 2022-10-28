@@ -17,7 +17,7 @@ export const Item = ({item}) => {
                             <Card.Text className='cardText'>
                                 {item.text}
                             </Card.Text>
-                            <Button variant="outline-dark" className='cardBtn rounded-pill'>Shop Now</Button>
+                            <Button variant="outline-dark" className='cardBtn rounded-pill'>Add To Cart</Button>
                         </Card.Body>
                     </Card>
                 </Link>

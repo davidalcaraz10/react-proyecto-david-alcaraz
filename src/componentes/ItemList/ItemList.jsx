@@ -1,5 +1,4 @@
 import { Item } from '../Item/Item';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import './ItemList.css';

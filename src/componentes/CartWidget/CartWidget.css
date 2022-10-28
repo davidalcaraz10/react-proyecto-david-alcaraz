@@ -4,6 +4,6 @@
     z-index: 1;
 }
 
-.logoW {
-    width: 170px;
+.pointer {
+    cursor: pointer;
 }

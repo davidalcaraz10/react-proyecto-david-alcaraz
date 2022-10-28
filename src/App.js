@@ -6,22 +6,28 @@ import { Sustaintability } from './componentes/Sustaintability/Sustaintability.j
 import { ItemDetailContainer } from './componentes/ItemDetailContainer/ItemDetailContainer.jsx';
 import { ItemListContainer } from './componentes/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './context/CartContext.js';
+// import { Footer } from './componentes/Footer/Footer';
 
 import './App.css';
 
 function App() {
   return (
+    <CartProvider>
     <BrowserRouter>
       <div className="App">
           <NavBar/> 
           <Hero/>
           <Routes>
             <Route path="/" element={<ItemListContainer/>}/>
+            <Route path="/category/:catId" element={<ItemListContainer/>}/>
             <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
             <Route path="/sustaintability" element={<Sustaintability/>}/>
           </Routes>
+          {/* <Footer/> */}
       </div>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

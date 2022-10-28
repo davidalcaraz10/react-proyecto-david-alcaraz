@@ -1,9 +1,29 @@
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
+import {useState} from 'react';
+
 import './ItemDetail.css';
 
-export const ItemDetail = ({item})=>{
+export const ItemDetail = ({item, initial, stock, onAdd}) => {
+
+    const [count, setCount] = useState(initial);
+
+    const minus = () => {
+        if(count > 1) {
+            setCount(count - 1)
+        }
+    }
+    
+    const plus = () => {
+        if(count < stock) {
+            setCount(count + 1)
+        }
+    }
+    console.log(count);
+
     return(
         <>
             <Container>
@@ -15,7 +35,13 @@ export const ItemDetail = ({item})=>{
                             <Card.Text className='cardText'>
                                 {item.text}
                             </Card.Text>
-                            <Button variant="outline-dark" className='cardBtn rounded-pill'>Shop Now</Button>
+                            {/* <FontAwesomeIcon type='button' icon={faMinus} onClick={minus} className="me-2 "></FontAwesomeIcon>
+                            <span>pieces: {pieces}</span>
+                            <FontAwesomeIcon type='button' icon={faPlus} onClick={plus} className="ms-2 pointer"></FontAwesomeIcon> */}
+                            <button onClick={minus}>-</button>
+                            <span>pieces: {count}</span>
+                            <button onClick={plus}>+</button>
+                            <Button disabled={stock === 0} variant="outline-dark" className='cardBtn rounded-pill' onClick={ ()=> onAdd(count)}>Add To Cart</Button>
                         </Card.Body>
                     </Card>
                     
@@ -28,3 +54,4 @@ export const ItemDetail = ({item})=>{
         </>
     )
 }
+

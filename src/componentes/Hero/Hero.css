@@ -17,7 +17,7 @@
 }
 
 .heroSubTitle {
-    width: 55%;
+    width: 50%;
     color: var(--mBlue);
     font-size: calc(.3em + 1vw);
     font-weight: 400;
