@@ -1,7 +1,29 @@
+.social {
+    background: #e7f1ff;
+}
+
 .footer {
-    background-color: rgb(207, 217, 232);
+    background: #e7f1ff;
     height: 70px;
     text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+.iconSocial {
+    width: 75px;
+    height: 65px;
+}
+
+.iconGH { 
+    color: black;
+    text-decoration: none;
 }
 
 .h2f {

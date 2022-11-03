@@ -1,35 +1,33 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDetail } from '../ItemDetail/ItemDetail';
-import { productsArray } from '../Data/Data';
+import { doc, getDoc } from 'firebase/firestore';
+import { dataBase } from '../../utils/firebase.js'
 
 import './ItemDetailContainer.css';
 
 export const ItemDetailContainer = () => {
 
     const {id} = useParams();
-    const [itemProduct, setItemProduct] = useState({});
+    const [item, setItem] = useState([]);
 
-    const promesa = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(productsArray);
-        }, 2000);
-    })
-
-    useEffect(() => {
-        const getProduct = async() => {
-            const products = await promesa;
-            const product = products.find(elemento => elemento.id === parseInt(id));
-            setItemProduct(product);
+    useEffect( () => {
+        const getDataI = async() => {
+            const queryRef = doc(dataBase, 'items', id)
+            const response = await getDoc(queryRef)
+            const result = {
+                ...response.data(),
+                id:response.id
+            }
+            setItem(result)
         }
-        getProduct();
-    },[id])
-
+        getDataI();
+    }, [id])
 
     return(
         <>
             <div className="backgroundCard">
-                <ItemDetail item={itemProduct}/>
+                <ItemDetail item={item} stock={10} dflt={1}/>
             </div>
         </>
     )

@@ -1,15 +1,24 @@
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import './ItemDetail.css';
 
-export const ItemDetail = ({item, initial, stock, onAdd}) => {
+export const ItemDetail = ({item, dflt, stock}) => {
 
-    const [count, setCount] = useState(initial);
+    const {addProduct} = useContext(CartContext)
+
+    const addItem = (numberProduct) => {
+        addProduct(item, numberProduct)
+    }
+
+    const [count, setCount] = useState(dflt);
 
     const minus = () => {
         if(count > 1) {
@@ -22,7 +31,7 @@ export const ItemDetail = ({item, initial, stock, onAdd}) => {
             setCount(count + 1)
         }
     }
-    console.log(count);
+
 
     return(
         <>
@@ -35,13 +44,12 @@ export const ItemDetail = ({item, initial, stock, onAdd}) => {
                             <Card.Text className='cardText'>
                                 {item.text}
                             </Card.Text>
-                            {/* <FontAwesomeIcon type='button' icon={faMinus} onClick={minus} className="me-2 "></FontAwesomeIcon>
-                            <span>pieces: {pieces}</span>
-                            <FontAwesomeIcon type='button' icon={faPlus} onClick={plus} className="ms-2 pointer"></FontAwesomeIcon> */}
-                            <button onClick={minus}>-</button>
-                            <span>pieces: {count}</span>
-                            <button onClick={plus}>+</button>
-                            <Button disabled={stock === 0} variant="outline-dark" className='cardBtn rounded-pill' onClick={ ()=> onAdd(count)}>Add To Cart</Button>
+                            <div className='d-flex flex-row align-items-center'>
+                                <FontAwesomeIcon type='button' icon={faMinus} onClick={minus} className="me-2 colorbt"></FontAwesomeIcon>
+                                <Button disabled={stock === 0} variant="outline-dark" className='cardBtn rounded-pill ' onClick={ ()=> addItem(count)} >Add To Cart {count === 1 ? '' : `(${count})`}</Button>
+                                <FontAwesomeIcon type='button' icon={faPlus} onClick={plus} className="ms-2 pointer colorbt"></FontAwesomeIcon>
+                            </div>
+                            
                         </Card.Body>
                     </Card>
                     

@@ -7,3 +7,20 @@
 .pointer {
     cursor: pointer;
 }
+
+.cartBtn {
+    border: none;
+    background-color: var(--mBlue);
+}
+.h4style {
+    color: var(--mBlue);
+}
+.pstyle{
+    color: var(--mBlue);
+}
+.orderBtn {
+    background-color: rgb(0, 37, 142);
+    border: none;
+}
+
+/* color botton rgb(0, 37, 142); #00258e */

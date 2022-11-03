@@ -11,25 +11,25 @@ export const CartProvider = ({children}) => {
     }
 
     const addProduct = (item, quantity) => {
-        const newArrayCart = [...cartElements];
+        const newCartArray = [...cartElements];
         if(alreadyInCart(item.id)){
-            const posProduct = newArrayCart.findIndex( (elemento) => elemento.id === item.id);
-            newArrayCart[posProduct].quantity += quantity;
-            newArrayCart[posProduct].quantityPrice = newArrayCart[posProduct].quantity * newArrayCart[posProduct].price;
-            setCartElements(newArrayCart);
+            const posProduct = newCartArray.findIndex( (elemento) => elemento.id === item.id);
+            newCartArray[posProduct].quantity += quantity;
+            newCartArray[posProduct].total = newCartArray[posProduct].quantity * newCartArray[posProduct].price;
+            setCartElements(newCartArray);
         } else{
             const newProduct = {
                 ...item,
                 quantity:quantity,
-                quantityPrice:quantity * item.price,
+                total:quantity * item.price,
             };
-            newArrayCart.push(newProduct);
-            setCartElements(newArrayCart);
+            newCartArray.push(newProduct);
+            setCartElements(newCartArray);
         }
     }
 
     const total = () => {
-        const totalPrice = cartElements.reduce((acc,curr) => acc + curr.quantityPrice, 0);
+        const totalPrice = cartElements.reduce((acc,curr) => acc + curr.total, 0);
         return totalPrice;
     }
 

@@ -7,7 +7,7 @@ import { ItemDetailContainer } from './componentes/ItemDetailContainer/ItemDetai
 import { ItemListContainer } from './componentes/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext.js';
-// import { Footer } from './componentes/Footer/Footer';
+import { Footer } from './componentes/Footer/Footer';
 
 import './App.css';
 
@@ -16,6 +16,7 @@ function App() {
     <CartProvider>
     <BrowserRouter>
       <div className="App">
+        <div>
           <NavBar/> 
           <Hero/>
           <Routes>
@@ -24,7 +25,8 @@ function App() {
             <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
             <Route path="/sustaintability" element={<Sustaintability/>}/>
           </Routes>
-          {/* <Footer/> */}
+          <Footer/>
+        </div>
       </div>
     </BrowserRouter>
     </CartProvider>

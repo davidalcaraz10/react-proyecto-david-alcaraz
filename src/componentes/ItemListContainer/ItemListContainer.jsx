@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { ItemList } from '../ItemList/ItemList';
-import { productsArray } from '../Data/Data';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { dataBase } from '../../utils/firebase.js'
 
 import './ItemListContainer.css';
 // import { faChessKing } from '@fortawesome/free-regular-svg-icons';
@@ -11,22 +12,27 @@ export const  ItemListContainer = () => {
     const {catId} = useParams();
     const [products, setProducts] = useState([]);
 
-    const promesa = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(productsArray);
-        }, 2000);
-    })
-
     useEffect( () => {
-        promesa.then((response)=> {
-            if(catId){
-                const filtering = response.filter(pr => pr.category === catId);
-                setProducts(filtering);
+        const getData = async() => {
+            let queryRef;
+            if(catId) {
+                queryRef = query(collection(dataBase, 'items'), where('category', '==', catId));
             } else {
-                setProducts(response)
+                queryRef = collection(dataBase, 'items');
             }
-        })
-    },[catId])
+
+            const response = await getDocs(queryRef)
+            const documents = response.docs;
+            const results = documents.map( element => {
+                return({
+                    ...element.data(),
+                    id:element.id
+                })
+            })
+            setProducts(results);
+        }
+        getData();
+    }, [catId])
 
     return(
         <>
@@ -37,7 +43,7 @@ export const  ItemListContainer = () => {
                     </div>
                 </div>
 
-                <div className='col m-4'>
+                <div className='col p-4'>
                    <ItemList items={products}/>
                 </div>
                 
