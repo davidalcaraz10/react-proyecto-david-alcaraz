@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { doc, getDoc } from 'firebase/firestore';
 import { dataBase } from '../../utils/firebase.js'
+import sorryPage from '../../assets/images/sorryPage.png';
 
 import './ItemDetailContainer.css';
 
@@ -27,7 +28,14 @@ export const ItemDetailContainer = () => {
     return(
         <>
             <div className="backgroundCard">
-                <ItemDetail item={item} stock={10} dflt={1}/>
+                {
+                    item.img === undefined ? 
+                    <div>
+                        <img src={sorryPage} alt="sorry"className="w-100 hhh"/>
+                    </div>  
+                    :
+                    <ItemDetail item={item} stock={10} dflt={1}/>
+                }
             </div>
         </>
     )
