@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### Descripción del proyecto
+
+Este proyecto tiene como propósito poner en práctica las herramientas aprendidas en el curso de React de Coderhouse. Los temas aplicados son diversos como: la creación de componentes y una organización correcta del proyecto, hooks (useState y useEffect), routing, eventos, context y traer la información desde firebase. La idea del proyecto consiste en un pequeño ecommerce de productos de higiene peronal amigables con el medio ambiente. El diseño y los recursos multimedia se tomaron desde la página original de la marca bite (en el siguinete apartado dejo el enlace a la página original). Se utilizó esta página como modelo puesto que el diseño era bastante interesante, bien logrado, minimalista y estético. El proyecto es completamente funcional, desde la visualización de cada item, la navegación por categorias, hasta el uso de base de datos y funcionamiento del carrito de compras. Otras secciones en el sitio como "About" (en la barra de navagación) o el footer son simplemente decorativas. 
+
+### Estilos y diseño responsivo
+
+Para trabajar los estilos se implentó el uso de la librería de react bootstrap 5, y también algo de css en algunas secciones específicas. Si bien el proyecto no es cien por cien un diseño responsive, sí se ajusta bien a los diferentes tamaños de pantalla.  
+
+### Enlace al sitio de Bite
+
+https://bitetoothpastebits.com
